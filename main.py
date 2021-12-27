@@ -41,11 +41,11 @@ today = datetime.now()
 # today = datetime(year=2021, month=12, day=23)
 pixel_data = {
     "date": today.strftime("%Y%m%d"),
-    "quantity": "21.09"
+    "quantity": input("how many kilometers did you cycle today? ")
 }
 
-# response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
-# print(response.text)
+response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
+print(response.text)
 
 # update value to the graph
 update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
@@ -58,5 +58,5 @@ new_pixel_data = {
 
 # delete value to the graph
 
-response = requests.delete(url=update_endpoint, headers=headers)
-print(response.text)
+# response = requests.delete(url=update_endpoint, headers=headers)
+# print(response.text)
